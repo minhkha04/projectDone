@@ -38,8 +38,18 @@ public class Cabinet {
         System.out.print("Nhập tên cho sinh viên: ");
         String name = sc.nextLine().trim().toUpperCase();
 
-        System.out.print("Nhập ID cho sinh viên: ");
-        String id = sc.nextLine().trim().toUpperCase();
+        String id;
+        while(true) {
+            System.out.print("Nhập ID cho sinh viên: ");
+            id = sc.nextLine().trim().toUpperCase();
+
+            String tmp = "SE\\d{6}";
+            if (id.matches(tmp)) {
+                break;
+            } else {
+                System.out.println("Nhập đúng định dạng");
+            }
+        }
 
         int yob = 0;
         while (true) {
