@@ -8,15 +8,16 @@ public class Cabinet {
     Scanner sc = new Scanner(System.in);
 
     public void printMenu() {
-        System.out.println("--------------------------------------");
-        System.out.println("-----------Bảng lựa chọn--------------");
-        System.out.println("---1. Thêm sinh viên------------------");
-        System.out.println("---2. In ra danh sách sinh viên-------");
-        System.out.println("---3. Tìm kiếm học sinh theo ID-------");
-        System.out.println("---4. Thay đổi thông tin sinh viên----");
-        System.out.println("---5. Xóa sinh viên khỏi danh sách----");
-        System.out.println("---6. Thoát---------------------------");
-        System.out.println("--------------------------------------");
+        System.out.println("----------------------------------------------------");
+        System.out.println("-----------Bảng lựa chọn----------------------------");
+        System.out.println("---1. Thêm sinh viên--------------------------------");
+        System.out.println("---2. In ra danh sách sinh viên---------------------");
+        System.out.println("---3. Tìm kiếm học sinh theo ID---------------------");
+        System.out.println("---4. Thay đổi thông tin sinh viên------------------");
+        System.out.println("---5. Xóa sinh viên khỏi danh sách------------------");
+        System.out.println("---6. In ra danh sách sinh viên tăng dần theo GPA---");
+        System.out.println("---7. Thoát-----------------------------------------");
+        System.out.println("----------------------------------------------------");
 
     }
 
@@ -97,7 +98,7 @@ public class Cabinet {
         if (arr.isEmpty()) {
             System.out.println("Danh sách trống");
         } else {
-            System.out.println("Danh sách sinh viên");
+            System.out.println("---------------Danh sách sinh viên------------------");
             for (Student x : arr) {
                 x.showProfile();
             }
@@ -183,13 +184,13 @@ public class Cabinet {
         } while (choice != 4);
     }
     public void printMenuChangeInformation() {
-        System.out.println("--------------------------------------");
-        System.out.println("------------Bảng lựa chọn-------------");
-        System.out.println("---1. Thay đổi tên--------------------");
-        System.out.println("---2. Thay đổi năm sinh---------------");
-        System.out.println("---3. Thay đổi GPA--------------------");
-        System.out.println("---4. Thoát---------------------------");
-        System.out.println("--------------------------------------");
+        System.out.println("----------------------------------------------------");
+        System.out.println("------------Bảng lựa chọn---------------------------");
+        System.out.println("---1. Thay đổi tên----------------------------------");
+        System.out.println("---2. Thay đổi năm sinh-----------------------------");
+        System.out.println("---3. Thay đổi GPA----------------------------------");
+        System.out.println("---4. Thoát-----------------------------------------");
+        System.out.println("----------------------------------------------------");
 
     }
 
@@ -203,5 +204,19 @@ public class Cabinet {
         }
         System.out.println("Xóa thành công");
 
+    }
+    
+    public void xapXepDanhSachTheoGPATangDan() {
+        if(arr.isEmpty()) {
+            System.out.println("Danh sách rỗng");
+        }
+        Collections.sort(arr, new Comparator<Student>(){
+            @Override
+            public int compare(Student o1, Student o2) {
+                if(o1.getGpa() > o2.getGpa())
+                    return -1;
+                return 1;
+            }
+        });
     }
 }

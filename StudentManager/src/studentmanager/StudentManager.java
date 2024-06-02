@@ -8,6 +8,7 @@ package studentmanager;
 import java.util.Scanner;
 
 import data.*;
+import java.lang.reflect.Array;
 
 public class StudentManager {
 
@@ -22,12 +23,17 @@ public class StudentManager {
             choice = se.checkInputInt();
             switch (choice) {
                 case 1:
+                    System.out.println("----------------------------------------------------");
                     se.addAStudent();
+                    System.out.println("----------------------------------------------------");
                     break;
                 case 2:
+                    System.out.println("----------------------------------------------------");
                     se.printfListProfile();
+                    System.out.println("----------------------------------------------------");
                     break;
                 case 3:
+                    System.out.println("----------------------------------------------------");
                     Student tmp = se.findAStudentById();
                     if (tmp == null) {
                         System.out.println("Không tìm thấy");
@@ -35,20 +41,31 @@ public class StudentManager {
                         System.out.println("Sinh viên cần tìm");
                         tmp.showProfile();
                     }
+                    System.out.println("----------------------------------------------------");
                     break;
                 case 4:
+                    System.out.println("----------------------------------------------------");
                     se.changeInformation();
+                    System.out.println("----------------------------------------------------");
                     break;
                 case 5:
+                    System.out.println("----------------------------------------------------");
                     se.remove();
+                    System.out.println("----------------------------------------------------");
                     break;
                 case 6:
+                    System.out.println("----------------------------------------------------");
+                    se.xapXepDanhSachTheoGPATangDan();
+                    se.printfListProfile();
+                    System.out.println("----------------------------------------------------");
+                    break;
+                case 7:
                     System.out.println("Hẹn gặp lại");
                     break;
                 default:
-                    System.out.println("Nhập lựa chọn từ 1 đến 6:");
+                    System.out.println("Nhập lựa chọn từ 1 đến 7:");
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
 }
